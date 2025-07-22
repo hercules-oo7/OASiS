@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-light: #FFFFFF;
+  --color-dark: #1A1A1A;
+  --color-gold: #D4AF37;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-accent text-secondary-900 font-body antialiased;
+    background: linear-gradient(135deg, #FEFCF7 0%, #FFFFFF 100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .luxury-card {
+    @apply bg-white/80 backdrop-blur-sm border border-primary-100/50 rounded-2xl shadow-luxury hover:shadow-gold transition-all duration-500;
+  }
+
+  .luxury-button {
+    @apply bg-gradient-gold text-white font-semibold px-8 py-4 rounded-xl shadow-gold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 relative overflow-hidden;
+  }
+
+  .luxury-button::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full;
+    animation: shimmer 2s infinite;
+  }
+
+  .luxury-button:hover::before {
+    animation: shimmer 0.6s;
+  }
+
+  .premium-input {
+    @apply w-full px-6 py-4 rounded-xl bg-white/50 backdrop-blur-sm border-2 border-primary-100 focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-300 font-body;
+  }
+
+  .executive-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gradient-gold text-white shadow-gold;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-accent-pearl;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Loading animation */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Premium modal backdrop */
+.modal-backdrop {
+  @apply fixed inset-0 bg-secondary-900/50 backdrop-blur-sm z-50;
+}
+
+/* Elegant hover effects */
+.hover-lift {
+  @apply transform transition-all duration-300 hover:-translate-y-2 hover:shadow-luxury;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-gold hover:border-primary-300;
+}
